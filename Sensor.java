@@ -1,5 +1,6 @@
 //Sensor class
-public class Sensor {
+import java.util.Comparator;
+public class Sensor implements Comparable<Sensor>{
 
 	//Private variables
 	private float x;
@@ -18,6 +19,12 @@ public class Sensor {
     	x = x1;
     	y = y1;
     	range = ran;    	
+    }
+    public int compareTo(Sensor comp){
+    	return (int) (this.getX()- comp.getX());
+    }
+    public Sensor( Sensor as){
+    	this(as.getX(),as.getY(),as.getRange());
     }
     
     //Constructor that takes 2 parameters

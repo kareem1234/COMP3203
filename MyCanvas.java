@@ -6,7 +6,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
-public class Canvas extends JPanel {
+public class MyCanvas extends JPanel {
     
     private float range;
     private Sensor[] sensors;
@@ -16,7 +16,7 @@ public class Canvas extends JPanel {
     
         
    	
-    public Canvas( Sensor[] g, String type ) {
+    public MyCanvas( Sensor[] g, String type ) {
     	sensors = g;
     	map = type;
     	setBorder(BorderFactory.createLineBorder(Color.black));
@@ -34,18 +34,22 @@ public class Canvas extends JPanel {
  	public void setType( String type){
  		map = type;
  	}
+ 	public void setSensors(Sensor[] s){
+ 		sensors = s;
+ 	}
  	
  	public void drawUnitLine(Graphics g){
  		g.setColor(Color.BLACK);
  		this.w = getSize().width;
  		this.h = getSize().height;
  		g.drawLine(0,(int)h/2,(int)w,(int)h/2);
+ 		System.out.println(sensors.length);
  		for(int i = 0; i < sensors.length; i++){
- 			//draw point
  			g.drawLine((int)(sensors[i].getX()*w),(int)h/2,(int)(sensors[i].getX()*w),(int)h/2);
  			
  			// draw range around point
- 			g.drawOval((int)(sensors[i].getX()*w),(int)h/2,(int)(sensors[i].getRange()*w),(int)(sensors[i].getRange()*h));
+ 			int rad = (int)((sensors[i].getRange()*w)/2);
+ 			g.drawOval((int)(sensors[i].getX()*w)- (int)(rad),(int)h/2 - (int)(rad),(int)(sensors[i].getRange()*w),(int)(sensors[i].getRange()*h));
  			
  		}
  		
@@ -74,7 +78,7 @@ public class Canvas extends JPanel {
  	
  		
  		g.drawLine( (int)offsetX, (int)offsetY,(int)(w-offsetX),(int)offsetY );
- 		g.drawLine( (int)offsetX, (int)(h-offsetY),(int)(w-offsetX),(int)offsetY );
+ 		g.drawLine( (int)offsetX, (int)(h-offsetY),(int)(w-offsetX),(int)(h-offsetY) );
 		g.drawLine( (int)offsetX, (int)offsetY,(int)offsetX,(int)(h-offsetY));
  		g.drawLine( (int)(w-offsetX), (int)offsetY,(int)(w-offsetX),(int)(h-offsetY));
  		

@@ -1,6 +1,6 @@
 public abstract class  Algorithm {
 
-	private boolean done;
+	protected boolean done;
 	private Statistics stats;
 	
     abstract protected boolean covered();
