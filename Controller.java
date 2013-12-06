@@ -7,31 +7,29 @@ import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;;
 
 public class Controller extends JFrame {
-      
-    public UnitInterval interval;
-    public MyCanvas canvs;
-    
+
+    public SensorDomain interval;
+    public MyCanvas canvas;
+
     public Controller() {
-    	interval = new UnitInterval(12,2);
-    	canvs = new MyCanvas(interval.getSensors(),"unit line");
+    	interval = new SensorDomain(12,2,"unit line");
+    	canvas = new MyCanvas(interval.getSensors(),"unit line");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setSize(400, 400);
-    	this.add(canvs);
+    	this.add(canvas);
     	this.setVisible(true);
     	this.setResizable(false);
-    	canvs.draw();
-    	
-    	
+    	canvas.draw();
     }
     public void start(){
-    	Algorithm unit = new MoveInterval(interval.getSensors());
+    	Algorithm unit = new IntervalAlgorithm();
+    	unit.setData(interval.getSensors());
     	while(!unit.done()){
     		unit.move();
-    		canvs.draw();
+    		canvas.draw();
     	}
-    	
     }
-    
+
     public static void main(String[] args) {
        Controller c = new Controller();
        c.start();

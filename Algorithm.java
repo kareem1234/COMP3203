@@ -1,10 +1,10 @@
 public abstract class  Algorithm {
 
-	protected boolean done;
-	private Statistics stats;
-	
-    abstract protected boolean covered();
+	protected boolean done = false;
+	protected CumulativeStats stats = new CumulativeStats();
+
+    abstract public void setData(Sensor[] s);
     abstract public void move();
-	abstract public void setData();
-	public boolean done() { return done;   } 
+    abstract protected boolean covered();
+    public boolean done() { return done;   }
 }
