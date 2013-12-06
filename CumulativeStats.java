@@ -37,7 +37,7 @@ public class CumulativeStats extends Statistics {
 		testStats.add(new Statistics());
 	}
 
-	public void update()	{
+	public void updateAverageStats()	{
 		float avmovesum = 0;
 		float avmaxmove = 0;
 		float avminmove= 0;
@@ -54,5 +54,9 @@ public class CumulativeStats extends Statistics {
 		setMaxMovement(avmaxmove/numOfTests);
 		setMinMovement(avminmove/numOfTests);
 		setTotalMovement(avtotalmove/numOfTests);
+	}
+
+	public void updateTestStats(float oldX, float oldY, float newX, float newY)	{
+		testStats.get(numOfTests-1).update(oldX, oldY, newX, newY);
 	}
 }

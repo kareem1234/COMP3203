@@ -3,7 +3,7 @@ public class Statistics {
 	//Private variables
 	private float movementsum = 0;
 	private float maxMovement = 0;
-	private float minMovement = 0;
+	private float minMovement = 10;
 	private float totalMovement = 0;
 
 	//Get and set methods
@@ -23,5 +23,17 @@ public class Statistics {
 	    System.out.println("Max Movement Required : " + maxMovement);
 	    System.out.println("Min Movement Required : " + minMovement);
 	    System.out.println("Total Movement Distance : " + totalMovement);
+    }
+
+    public void update(float oldX, float oldY, float newX, float newY)	{
+    	float diffX = Math.abs(oldX - newX);
+		float diffY = Math.abs(oldY - newY);
+
+		float distance = (float)Math.sqrt(Math.pow(diffX, 2) + Math.pow(diffY, 2));
+
+		movementsum++;
+		if(distance > maxMovement)	maxMovement = distance;
+		if(distance < minMovement)	minMovement = distance;
+		totalMovement += distance;
     }
 }

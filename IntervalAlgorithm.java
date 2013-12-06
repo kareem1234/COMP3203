@@ -90,7 +90,7 @@ public class IntervalAlgorithm extends Algorithm	{
 
     public void move(){
     	if(covered())	{
-			stats.update();
+			stats.updateAverageStats();
     		return;
     	}
     	else if(location.equals("left")){
@@ -105,18 +105,23 @@ public class IntervalAlgorithm extends Algorithm	{
     }
 
     private void moveLeft(){
+    	float oldXcoor = sensors[index].getX();
+    	float oldYcoor = sensors[index].getY();
+
     	if(index == 0){
     		sensors[index].setX(start + sensors[index].getRange());
     	}else{
-    		sensors[index].setX(sensors[index-1].getX() + 1*sensors[index].getRange());
+    		sensors[index].setX(sensors[index-1].getX() + sensors[index].getRange());
     	}
+
+    	stats.updateTestStats(oldXcoor, oldYcoor, sensors[index].getX(), sensors[index].getY());
     }
 
     private void moveRight(){
     	if(index == 0){
     		sensors[sensors.length-1-index].setX(end - sensors[index].getRange());
     	}else{
-    		sensors[sensors.length-1-index].setX(sensors[sensors.length-index].getX() - 1*sensors[index].getRange());
+    		sensors[sensors.length-1-index].setX(sensors[sensors.length-index].getX() - sensors[index].getRange());
     	}
     }
 

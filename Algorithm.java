@@ -7,4 +7,5 @@ public abstract class  Algorithm {
     abstract public void move();
     abstract protected boolean covered();
     public boolean done() { return done;   }
+    public CumulativeStats getStats()	{	return stats;	}
 }

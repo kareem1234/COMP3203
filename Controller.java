@@ -28,6 +28,7 @@ public class Controller extends JFrame {
     		unit.move();
     		canvas.draw();
     	}
+    	unit.getStats().display();
     }
 
     public static void main(String[] args) {
