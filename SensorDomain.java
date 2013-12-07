@@ -1,4 +1,4 @@
-//UnitInterval class
+//SensorDomain class
 public class SensorDomain {
 
 	//Private variables
