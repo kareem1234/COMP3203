@@ -22,7 +22,7 @@ public class MyCanvas extends JPanel {
     }
 
     public Dimension getPreferredSize() {
-        return new Dimension(1000,800);
+        return new Dimension(1500,800);
     }
 
  	public void draw()	{

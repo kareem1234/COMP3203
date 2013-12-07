@@ -22,14 +22,11 @@ public class IntervalAlgorithm extends Algorithm	{
     	System.arraycopy(sensors, 0, c, 0, sensors.length);
 
     	Arrays.sort(c);
-    	for(int i = 0; i < c.length; i++)	{
-    		System.out.println("Sensor X coordinate: " + c[i].getX());
-    	}
-    	if( (c[0].getX()-c[0].getRange()) > 0)	return false;
-    	if( (c[c.length-1].getX()+c[c.length-1].getRange()) < 1 )	return false;
+    	if((c[0].getX() - c[0].getRange()) > 0)	return false;
+    	if((c[c.length-1].getX() + c[c.length-1].getRange()) < 1 )	return false;
 
     	for(int i = 0; i < c.length-1; i++)	{
-    		if( (c[i].getX()+ c[i].getRange()) < (c[i+1].getX() - c[i+1].getRange()) )	return false;
+    		if(((c[i+1].getX() - c[i+1].getRange()) - (c[i].getX()+ c[i].getRange())) > 0.0000001f )	return false;
     	}
 
     	done = true;
