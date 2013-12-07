@@ -1,50 +1,4 @@
-/* **start = 0
-**end = 1
-**statistics = statistics class, tracks stats
-
-
-Algorithm #1
-
-
-move(i, location)	{
-	base case: covered() which checks if interval's covered
-	if (left)	{
-		moveLeft(i) : move left sensor at index i
-		move(i, right)
-	else {
-		moveRight(length-1-i) : move right sensor at index (length-1)-i
-		move(i+1, left)
-	}
-}
-
-covered()	{
-	make a copy of the sensor array
-	sort it in ascending x coordinate order
-	go through the array 2 elements at a time,
-		if the 1st element's x coordinate + it's range < 2nd element's x coordinate - it's range
-		return false
-		else check next 2 elements
-}
-
-moveLeft(i)	{
-	if(i=0)	{
-		sensor[i].x = start + sensor[i].range
-	}
-	else	{
-		sensor[i].x = sensor[i-1].x + 2*sensor[i].range
-	}
-	statistics.movementsum++
-}
-
-moveRight(i)	{
-	if(i=length-1)	{
-		sensor[i].x = end - sensor[i].range
-	}
-	else	{
-		sensor[i].x = sensor[i+1].x - 2*sensor[i].range
-	}
-	statistics.movementsum++
-}
+/*
 
 Algorithm #2
 
@@ -57,35 +11,29 @@ move2()	{
 }
 */
 import java.util.Arrays;
+
 public class IntervalAlgorithm extends Algorithm	{
 	private Sensor[] sensors;
 	private String location;
-	private int start = 0;
-	private int end = 1;
 	private int index;
 
     protected boolean covered()	{
-    	Sensor[] c = copy();
-    	Arrays.sort(c);
-    	if( (c[0].getX()-c[0].getRange()) > 0)
-    			return false;
-    	if( (c[c.length-1].getX()+c[c.length-1].getRange()) < 1 )
-    			return false;
+    	Sensor[] c = new Sensor[sensors.length];
+    	System.arraycopy(sensors, 0, c, 0, sensors.length);
 
-    	for(int i =0; i< c.length-1; i++)
-    		if( (c[i].getX()+ c[i].getRange())  < c[i+1].getX())
-    				return false;
+    	Arrays.sort(c);
+    	for(int i = 0; i < c.length; i++)	{
+    		System.out.println("Sensor X coordinate: " + c[i].getX());
+    	}
+    	if( (c[0].getX()-c[0].getRange()) > 0)	return false;
+    	if( (c[c.length-1].getX()+c[c.length-1].getRange()) < 1 )	return false;
+
+    	for(int i = 0; i < c.length-1; i++)	{
+    		if( (c[i].getX()+ c[i].getRange()) < (c[i+1].getX() - c[i+1].getRange()) )	return false;
+    	}
 
     	done = true;
     	return true;
-    }
-
-    public Sensor[] copy()	{
-    	Sensor[] a = new Sensor[sensors.length];
-    	for(int i = 0; i< a.length; i++)
-			a[i] = sensors[i];
-			return a;
-
     }
 
     public void move(){
@@ -108,21 +56,31 @@ public class IntervalAlgorithm extends Algorithm	{
     	float oldXcoor = sensors[index].getX();
     	float oldYcoor = sensors[index].getY();
 
+		System.out.println("Sensors range: " + sensors[sensors.length-1].getRange());
+		System.out.println("Sensors range: " + sensors[sensors.length-1-index].getRange());
+
     	if(index == 0){
-    		sensors[index].setX(start + sensors[index].getRange());
+    		sensors[index].setX(sensors[index].getRange());
     	}else{
-    		sensors[index].setX(sensors[index-1].getX() + sensors[index].getRange());
+    		sensors[index].setX(sensors[index-1].getX() + (sensors[index-1].getRange()*2f));
     	}
 
     	stats.updateTestStats(oldXcoor, oldYcoor, sensors[index].getX(), sensors[index].getY());
     }
 
     private void moveRight(){
+    	float oldXcoor = sensors[sensors.length-1-index].getX();
+    	float oldYcoor = sensors[sensors.length-1-index].getY();
+
+		System.out.println("Sensors range: " + sensors[sensors.length-1].getRange());
+		System.out.println("Sensors range: " + sensors[sensors.length-1-index].getRange());
     	if(index == 0){
-    		sensors[sensors.length-1-index].setX(end - sensors[index].getRange());
+    		sensors[sensors.length-1].setX(1 - sensors[sensors.length-1].getRange());
     	}else{
-    		sensors[sensors.length-1-index].setX(sensors[sensors.length-index].getX() - sensors[index].getRange());
+    		sensors[sensors.length-1-index].setX(sensors[sensors.length-index].getX() - (sensors[sensors.length-index].getRange()*2f));
     	}
+
+    	stats.updateTestStats(oldXcoor, oldYcoor, sensors[index].getX(), sensors[index].getY());
     }
 
     public void setData(Sensor[] s){

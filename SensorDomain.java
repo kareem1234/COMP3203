@@ -23,6 +23,7 @@ public class SensorDomain {
     	numSensors = n;
     	fOfn = fOf;
     	sensors = new Sensor[numSensors];
+    	System.out.println(sensors.length);
     	setSensorRanges();
     	placeSensors();
     }
@@ -34,7 +35,6 @@ public class SensorDomain {
     		sensors[i] = new Sensor();
     		sensors[i].setRange(range);
     	}
-    	System.out.println("Total range is: "+ numSensors*2*range);
     }
 
     //Places the sensors randomly within the interval

@@ -11,7 +11,7 @@ public class CumulativeStats extends Statistics {
 	public ArrayList<Statistics> getTestStats()	{	return testStats;	}
 
 	public void display()	{
-		int i = 0;
+		int i = 1;
 
 		if(numOfTests == 0)	{
 			System.out.println("No Statistics Available As No Tests Have Been Performed");
