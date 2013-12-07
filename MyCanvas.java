@@ -14,9 +14,8 @@ public class MyCanvas extends JPanel {
     private float h;
     private float w;
 
-    public MyCanvas( Sensor[] g, String type ) {
+    public MyCanvas(Sensor[] g, String type) {
     	sensors = g;
-    	System.out.println(sensors.length);
     	map = type;
     	setBorder(BorderFactory.createLineBorder(Color.black));
     }
@@ -52,22 +51,29 @@ public class MyCanvas extends JPanel {
  			// draw range around point
  			int rad = (int)(sensors[i].getRange() * w);
  			g.drawOval(xCoor - rad,(int)h/2 - rad, 2*rad, 2*rad);
-
  		}
-
-
  	}
+
  	public void drawUnitSquare(Graphics g){
  		g.setColor(Color.BLACK);
- 		this.w = getSize().width;
- 		this.h = getSize().height;
+ 		this.w = getSize().width - 200;
+ 		this.h = getSize().height - 200;
 
- 		for(int i = 0; i < sensors.length; i++){
+		//Draw perimeter of square
+		g.drawRect(100, 100, (int)w, (int)h);
+
+		int xCoor, yCoor;
+
+ 		for(int i = 0; i < sensors.length; i++)	{
+ 			xCoor = (int)(sensors[i].getX() * w + 100);
+ 			yCoor = (int)(sensors[i].getY()* h + 100);
+
  			//draw point
- 			g.drawLine((int)(sensors[i].getX()*w),(int)(sensors[i].getY()*h),(int)(sensors[i].getX()*w),(int)(sensors[i].getY()*h));
+ 			g.drawLine(xCoor, yCoor, xCoor, yCoor);
 
  			// draw range around point
- 			g.drawOval((int)(sensors[i].getX()*w),(int)(sensors[i].getY()*h),(int)(sensors[i].getRange()*w),(int)(sensors[i].getRange()*h));
+ 			int rad = (int)(sensors[i].getRange() * w);
+ 			g.drawOval(xCoor - rad, yCoor - rad, 2*rad, 2*rad);
  		}
  	}
 

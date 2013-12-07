@@ -23,7 +23,6 @@ public class SensorDomain {
     	numSensors = n;
     	fOfn = fOf;
     	sensors = new Sensor[numSensors];
-    	System.out.println(sensors.length);
     	setSensorRanges();
     	placeSensors();
     }

@@ -5,7 +5,7 @@ public abstract class  Algorithm {
 
     abstract public void setData(Sensor[] s);
     abstract public void move();
-    abstract protected boolean covered();
+    abstract public boolean covered();
     public boolean done() { return done;   }
     public CumulativeStats getStats()	{	return stats;	}
 }

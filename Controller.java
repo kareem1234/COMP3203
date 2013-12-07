@@ -12,18 +12,18 @@ public class Controller extends JFrame {
     public MyCanvas canvas;
 
     public Controller() throws InterruptedException {
-    	interval = new SensorDomain(100,1.3f,"unit line");
-    	canvas = new MyCanvas(interval.getSensors(),"unit line");
+    	interval = new SensorDomain(500,30,"unit square");
+    	canvas = new MyCanvas(interval.getSensors(),"unit square");
     	this.setTitle("Sensor Domain Coverage Simulator");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setSize(1500, 800);
+        this.setSize(1000, 1000);
     	this.add(canvas);
     	this.setVisible(true);
     	this.setResizable(false);
     	canvas.draw();
     }
     public void start() throws InterruptedException	{
-    	Algorithm unit = new IntervalAlgorithm();
+    	Algorithm unit = new UnitSquareAlgorithm();
     	unit.setData(interval.getSensors());
     	while(!unit.done()){
     		Thread.sleep(100);

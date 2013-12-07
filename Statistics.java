@@ -26,6 +26,7 @@ public class Statistics {
     }
 
     public void update(float oldX, float oldY, float newX, float newY)	{
+
     	float diffX = Math.abs(oldX - newX);
 		float diffY = Math.abs(oldY - newY);
 

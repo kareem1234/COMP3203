@@ -1,19 +1,20 @@
 //Sensor class
 import java.util.Comparator;
+
 public class Sensor implements Comparable<Sensor>{
 
 	//Private variables
-	private float x;
-	private float y;
-	private float range;
+	private float x = 0;
+	private float y = 0;
+	private float range = 0;
 
 	//Get and set functions
-    public float getX()				{	return x;	}
-    public float getY()				{	return y;	}
-    public float getRange()			{	return range;	}
+    public float getX()	{	return x;	}
+    public float getY()	{	return y;	}
+    public float getRange()	{	return range;	}
 
-    public void setX(float x1)		{	x = x1;	}
-    public void setY(float y1)		{	y = y1;	}
+    public void setX(float x1)	{	x = x1;	}
+    public void setY(float y1)	{	y = y1;	}
     public void setRange(float ran)	{	range = ran;	}
 
 	//Empty constructor
@@ -36,8 +37,8 @@ public class Sensor implements Comparable<Sensor>{
     	range = ran;
     }
 
-	public Sensor(Sensor as){
-    	this(as.getX(),as.getY(),as.getRange());
+	public Sensor(Sensor as)	{
+    	this(as.getX(), as.getY(), as.getRange());
     }
 
     public int compareTo(Sensor s){

@@ -17,7 +17,7 @@ public class IntervalAlgorithm extends Algorithm	{
 	private String location;
 	private int index;
 
-    protected boolean covered()	{
+    public boolean covered()	{
     	Sensor[] c = new Sensor[sensors.length];
     	System.arraycopy(sensors, 0, c, 0, sensors.length);
 
@@ -38,7 +38,8 @@ public class IntervalAlgorithm extends Algorithm	{
 			stats.updateAverageStats();
     		return;
     	}
-    	else if(location.equals("left")){
+
+    	if(location.equals("left")){
     		moveLeft();
     		location = "right";
     	}
@@ -50,11 +51,8 @@ public class IntervalAlgorithm extends Algorithm	{
     }
 
     private void moveLeft(){
-    	float oldXcoor = sensors[index].getX();
-    	float oldYcoor = sensors[index].getY();
-
-		System.out.println("Sensors range: " + sensors[sensors.length-1].getRange());
-		System.out.println("Sensors range: " + sensors[sensors.length-1-index].getRange());
+    	float oldX = sensors[index].getX();
+    	float oldY = sensors[index].getY();
 
     	if(index == 0){
     		sensors[index].setX(sensors[index].getRange());
@@ -62,22 +60,20 @@ public class IntervalAlgorithm extends Algorithm	{
     		sensors[index].setX(sensors[index-1].getX() + (sensors[index-1].getRange()*2f));
     	}
 
-    	stats.updateTestStats(oldXcoor, oldYcoor, sensors[index].getX(), sensors[index].getY());
+    	stats.updateTestStats(oldX, oldY, sensors[index].getX(), sensors[index].getY());
     }
 
     private void moveRight(){
-    	float oldXcoor = sensors[sensors.length-1-index].getX();
-    	float oldYcoor = sensors[sensors.length-1-index].getY();
+    	float oldX = sensors[sensors.length-1-index].getX();
+    	float oldY = sensors[sensors.length-1-index].getY();
 
-		System.out.println("Sensors range: " + sensors[sensors.length-1].getRange());
-		System.out.println("Sensors range: " + sensors[sensors.length-1-index].getRange());
     	if(index == 0){
     		sensors[sensors.length-1].setX(1 - sensors[sensors.length-1].getRange());
     	}else{
     		sensors[sensors.length-1-index].setX(sensors[sensors.length-index].getX() - (sensors[sensors.length-index].getRange()*2f));
     	}
 
-    	stats.updateTestStats(oldXcoor, oldYcoor, sensors[index].getX(), sensors[index].getY());
+    	stats.updateTestStats(oldX, oldY, sensors[sensors.length-1-index].getX(), sensors[sensors.length-1-index].getY());
     }
 
     public void setData(Sensor[] s){
