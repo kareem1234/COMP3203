@@ -62,11 +62,14 @@ public class UnitLineAlgorithm extends Algorithm	{
     	stats.updateTestStats(oldX, oldY, sensors[sensors.length-1-index].getX(), sensors[sensors.length-1-index].getY());
     }
 
-    public void setData(Sensor[] s){
+    public void setData(Sensor[] s)	{
     	sensors = s;
 		Arrays.sort(sensors);
     	location ="left";
     	index = 0;
+    	done = false;
     	stats.createTest();
+    	stats.setNumOfSensors(s.length);
+    	stats.setRadius(s[0].getRange());
     }
 }

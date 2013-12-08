@@ -64,13 +64,17 @@ public class UnitSquareAlgorithm extends Algorithm	{
 	}
 
 	public void setData(Sensor[] s)	{
+		done = false;
 		sensors = s;
-		System.out.println(s.length);
 		dim = (float)Math.sqrt(2*Math.pow(sensors[0].getRange(), 2));
 		numRows = (int)Math.floor(1/dim);
 		numCols = (int)Math.floor(1/dim);
+		col = 0;
+		row = 0;
 		sortedSensors = new ArrayList<Sensor>(Arrays.asList(sensors));
 		stats.createTest();
+		stats.setNumOfSensors(s.length);
+    	stats.setRadius(s[0].getRange());
 	}
 
 }
