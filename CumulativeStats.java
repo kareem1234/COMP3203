@@ -18,6 +18,18 @@ public class CumulativeStats extends Statistics {
 	public ArrayList<Statistics> getTestStats()	{	return testStats;	}
 
 	public void displayAll()	{
+		Logger logger = Logger.getLogger("Log File");
+    	FileHandler fh;
+    	
+    	try	{
+    		fh = new FileHandler("./LogFile.log");
+    		logger.addHandler(fh);
+    		SimpleFormatter format = new SimpleFormatter();
+    		fh.setFormatter(format);
+    	} catch(Exception e)	{
+    		e.printStackTrace();
+    	}
+    	
 		int i = 1;
 
 		if(numOfTests == 0)	{
@@ -30,21 +42,21 @@ public class CumulativeStats extends Statistics {
 		logger.info("Test Case (n = " + numOfSensors + ", radius = " + rad + ")");
 
     	for(Statistics s: testStats)	{
-    		logger.info();
-    		logger.info("---------------------------------------");
-    		logger.info("Test Run #" + i++);
-    		logger.info("Sum of Movements : " + s.getMovementSum());
-	    	logger.info("Max Movement Required : " + s.getMaxMovement());
-	    	logger.info("Min Movement Required : " + s.getMinMovement());
-	    	logger.info("Total Movement Distance : " + s.getTotalMovement());
-	  		logger.info("---------------------------------------");
+    		logger.log(null, "");
+    		logger.log(null, "---------------------------------------");
+    		logger.log(null, "Test Run #" + i++);
+    		logger.log(null, "Sum of Movements : " + s.getMovementSum());
+	    	logger.log(null, "Max Movement Required : " + s.getMaxMovement());
+	    	logger.log(null, "Min Movement Required : " + s.getMinMovement());
+	    	logger.log(null, "Total Movement Distance : " + s.getTotalMovement());
+	  		logger.log(null, "---------------------------------------");
     	}
 
-    	logger.info("Average Sum of Movements : " + getMovementSum());
-		logger.info("Average Max Movement Required : " + getMaxMovement());
-		logger.info("Average Min Movement Required : " + getMinMovement());
-		logger.info("Average Total Movement Distance : " + getTotalMovement());
-		logger.info();
+    	logger.log(null, "Average Sum of Movements : " + getMovementSum());
+		logger.log(null, "Average Max Movement Required : " + getMaxMovement());
+		logger.log(null, "Average Min Movement Required : " + getMinMovement());
+		logger.log(null, "Average Total Movement Distance : " + getTotalMovement());
+		logger.log(null, "");
 	}
 
 	public void displayLastTestStats()	{
