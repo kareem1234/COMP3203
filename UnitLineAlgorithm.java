@@ -1,18 +1,6 @@
-/*
-
-Algorithm #2
-
-move2()	{
-	for(each sensor in the array)	{
-		if(sensor[i].x = (2*(i+1)-1)/(2n))	return
-		sensor[i].x = (2*(i+1)-1)/(2n))
-		statistics.movementsum++
-	}
-}
-*/
 import java.util.Arrays;
 
-public class IntervalAlgorithm extends Algorithm	{
+public class UnitLineAlgorithm extends Algorithm	{
 	private Sensor[] sensors;
 	private String location;
 	private int index;
@@ -35,7 +23,6 @@ public class IntervalAlgorithm extends Algorithm	{
 
     public void move(){
     	if(covered())	{
-			stats.updateAverageStats();
     		return;
     	}
 

@@ -17,6 +17,8 @@ public class CumulativeStats extends Statistics {
 			System.out.println("No Statistics Available As No Tests Have Been Performed");
 			return;
 		}
+		
+		updateAverageStats();
 
     	for(Statistics s: testStats)	{
     		System.out.println("Test Run #" + i++);

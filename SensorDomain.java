@@ -42,7 +42,7 @@ public class SensorDomain {
     		sensors[i].setX(randomCoordinate());
     	}
 
-    	if(type != "unit line")	{
+    	if(!type.equals("Unit Line"))	{
     		for(int s = 0; s < sensors.length; s++)	{
     			sensors[s].setY(randomCoordinate());
     		}

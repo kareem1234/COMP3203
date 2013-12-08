@@ -8,23 +8,24 @@ import java.awt.Graphics;
 
 public class MyCanvas extends JPanel {
 
-    private float range;
+    private float range = 0;
     private Sensor[] sensors;
-    private String map;
+    private String map = "";
     private float h;
     private float w;
+
+	public MyCanvas()	{	}
 
     public MyCanvas(Sensor[] g, String type) {
     	sensors = g;
     	map = type;
-    	setBorder(BorderFactory.createLineBorder(Color.black));
     }
 
     public Dimension getPreferredSize() {
-        return new Dimension(1500,800);
+        return new Dimension(800,800);
     }
 
- 	public void draw()	{
+ 	public void draw() {
  		repaint();
  	}
 
@@ -54,7 +55,7 @@ public class MyCanvas extends JPanel {
  		}
  	}
 
- 	public void drawUnitSquare(Graphics g){
+ 	public void drawSquare(Graphics g){
  		g.setColor(Color.BLACK);
  		this.w = getSize().width - 200;
  		this.h = getSize().height - 200;
@@ -77,38 +78,14 @@ public class MyCanvas extends JPanel {
  		}
  	}
 
- 	public void drawUnitSquarePerimeter(Graphics g){
- 		g.setColor(Color.BLACK);
- 		this.w = getSize().width;
- 		this.h = getSize().height;
- 		float offsetX = w/10;
- 		float offsetY = h/10;
-
- 		g.drawLine( (int)offsetX, (int)offsetY,(int)(w-offsetX),(int)offsetY );
- 		g.drawLine( (int)offsetX, (int)(h-offsetY),(int)(w-offsetX),(int)(h-offsetY) );
-		g.drawLine( (int)offsetX, (int)offsetY,(int)offsetX,(int)(h-offsetY));
- 		g.drawLine( (int)(w-offsetX), (int)offsetY,(int)(w-offsetX),(int)(h-offsetY));
-
- 		float wWidth = (w-offsetX) - offsetX;
- 		float hHeight = (h-offsetY) - offsetY;
-
- 		for(int i=0; i< sensors.length; i++){
- 			g.drawLine((int)(sensors[i].getX()*wWidth +offsetX),(int)(sensors[i].getY()*hHeight + offsetY),
- 			(int)(sensors[i].getX()*wWidth + offsetX),(int)(sensors[i].getY()*hHeight + offsetY));
-
- 			// draw range around point
- 			g.drawOval((int)(sensors[i].getX()*w),(int)(sensors[i].getY()*h),(int)(sensors[i].getRange()*w),(int)(sensors[i].getRange()*h));
- 		}
- 	}
-
- 	protected void paintComponent(Graphics g)	{
+  	protected void paintComponent(Graphics g)	{
  		super.paintComponent(g);
- 		if(map.equals("unit line"))
- 				drawUnitLine(g);
- 		else if(map.equals("unit square"))
- 				drawUnitSquare(g);
- 		else
- 			drawUnitSquarePerimeter(g);
+ 		if(map.equals("Unit Line"))
+ 			drawUnitLine(g);
+ 		else if(map.equals("Unit Square"))
+ 			drawSquare(g);
+ 		else if(map.equals("Unit Perimeter"))
+ 			drawSquare(g);
  	}
 
 }
