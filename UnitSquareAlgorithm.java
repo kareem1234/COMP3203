@@ -14,15 +14,19 @@ public class UnitSquareAlgorithm extends Algorithm	{
 	private float dim = 0;
 
     public boolean covered()	{
-    	if(col == 0 && row == numRows + 1)	{
-    		done = true;
-    		return true;
-    	}
+    	if(col == 0 && row == numRows + 1)	return true;
     	return false;
     }
+    
+    public boolean canBeCovered()	{
+		float sum = (numCols+1)*(numRows+1);
+		if(sensors.length >= sum)	return true;
+		return false;
+	}
 
 	public void move()	{
-		if(covered())	{
+		if(covered() || !canBeCovered())	{
+			done = true;
     		return;
 		}
 
@@ -43,8 +47,6 @@ public class UnitSquareAlgorithm extends Algorithm	{
 		if(idealX > 1) idealX = 1;
 		if(idealY > 1) idealY = 1;
 		if(sortedSensors.isEmpty())	{
-			JOptionPane.showMessageDialog(null, "The domain cannot be covered with the given number of sensors and radius",
-			"Error", JOptionPane.ERROR_MESSAGE);
 			done = true;
 			return;
 		}

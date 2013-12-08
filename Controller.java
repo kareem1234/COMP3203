@@ -16,7 +16,6 @@ public class Controller extends JFrame implements ActionListener	{
     private Timer timer;
     private boolean running;
 
-
     public Controller() {
     	setTitle("Sensor Domain Coverage Simulator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -145,13 +144,15 @@ public class Controller extends JFrame implements ActionListener	{
     	canvas.draw();
 
     	if(algo.done())	{
+    		timer.stop();
+	    	running = false;
+	    	
+    		if(!algo.covered())	JOptionPane.showMessageDialog(null, "The domain cannot be covered with the given number of sensors and radius", "Error", JOptionPane.ERROR_MESSAGE);
+    		algo.stats.displayLastTestStats();
 	    	startsim.setEnabled(true);
 	    	nVal.setEnabled(true);
 	    	fOfnVal.setEnabled(true);
 	    	simModel.setEnabled(true);
-
-	    	timer.stop();
-	    	running = false;
     	}
     }
 

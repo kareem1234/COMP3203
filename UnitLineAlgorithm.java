@@ -14,15 +14,14 @@ public class UnitLineAlgorithm extends Algorithm	{
     	if((c[c.length-1].getX() + c[c.length-1].getRange()) < 1 )	return false;
 
     	for(int i = 0; i < c.length-1; i++)	{
-    		if(((c[i+1].getX() - c[i+1].getRange()) - (c[i].getX()+ c[i].getRange())) > 0.0000001f )	return false;
+    		if(((c[i+1].getX() - c[i+1].getRange()) - (c[i].getX()+ c[i].getRange())) > 0.00001f )	return false;
     	}
-
-    	done = true;
     	return true;
     }
 
     public void move(){
     	if(covered())	{
+    		done = true;
     		return;
     	}
 

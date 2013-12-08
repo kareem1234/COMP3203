@@ -10,7 +10,7 @@ public class CumulativeStats extends Statistics {
 	public int getNumOfTests()		{	return numOfTests;	}
 	public ArrayList<Statistics> getTestStats()	{	return testStats;	}
 
-	public void display()	{
+	public void displayAll()	{
 		int i = 1;
 
 		if(numOfTests == 0)	{
@@ -26,14 +26,34 @@ public class CumulativeStats extends Statistics {
 	    	System.out.println("Max Movement Required : " + s.getMaxMovement());
 	    	System.out.println("Min Movement Required : " + s.getMinMovement());
 	    	System.out.println("Total Movement Distance : " + s.getTotalMovement());
+	  		System.out.println();
     	}
 
     	System.out.println("Average Sum of Movements : " + getMovementSum());
 		System.out.println("Average Max Movement Required : " + getMaxMovement());
 		System.out.println("Average Min Movement Required : " + getMinMovement());
 		System.out.println("Average Total Movement Distance : " + getTotalMovement());
+		System.out.println();
 	}
 
+	public void displayLastTestStats()	{
+		if(numOfTests == 0)	{
+			System.out.println("No Statistics Available As No Tests Have Been Performed");
+			return;
+		}
+		
+		updateAverageStats();
+
+    	Statistics s = testStats.get(0);
+    	
+    	System.out.println("Test Result");
+    	System.out.println("Sum of Movements : " + s.getMovementSum());
+	    System.out.println("Max Movement Required : " + s.getMaxMovement());
+	    System.out.println("Min Movement Required : " + s.getMinMovement());
+	    System.out.println("Total Movement Distance : " + s.getTotalMovement());
+	  	System.out.println();
+	}
+	
 	public void createTest()	{
 		numOfTests++;
 		testStats.add(new Statistics());
