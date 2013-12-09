@@ -1,0 +1,186 @@
+Test Case (n = 10, radius = 0.05)
+
+---------------------------------------
+Test Run #1
+Sum of Movements : 10.0
+Max Movement Required : 0.14246213
+Min Movement Required : 0.009576321
+Total Movement Distance : 0.65191203
+---------------------------------------
+
+
+---------------------------------------
+Test Run #2
+Sum of Movements : 10.0
+Max Movement Required : 0.16224042
+Min Movement Required : 0.015966814
+Total Movement Distance : 0.77295256
+---------------------------------------
+
+
+---------------------------------------
+Test Run #3
+Sum of Movements : 10.0
+Max Movement Required : 0.36865193
+Min Movement Required : 0.009171963
+Total Movement Distance : 2.0645418
+---------------------------------------
+
+
+---------------------------------------
+Test Run #4
+Sum of Movements : 10.0
+Max Movement Required : 0.14461899
+Min Movement Required : 0.007901847
+Total Movement Distance : 0.72745454
+---------------------------------------
+
+
+---------------------------------------
+Test Run #5
+Sum of Movements : 10.0
+Max Movement Required : 0.20693016
+Min Movement Required : 0.004069209
+Total Movement Distance : 0.7543764
+---------------------------------------
+
+
+---------------------------------------
+Test Run #6
+Sum of Movements : 10.0
+Max Movement Required : 0.2383476
+Min Movement Required : 0.005759448
+Total Movement Distance : 0.93355125
+---------------------------------------
+
+
+---------------------------------------
+Test Run #7
+Sum of Movements : 10.0
+Max Movement Required : 0.31723672
+Min Movement Required : 0.019975185
+Total Movement Distance : 1.5004866
+---------------------------------------
+
+
+---------------------------------------
+Test Run #8
+Sum of Movements : 10.0
+Max Movement Required : 0.21503809
+Min Movement Required : 0.018752694
+Total Movement Distance : 1.0865422
+---------------------------------------
+
+
+---------------------------------------
+Test Run #9
+Sum of Movements : 10.0
+Max Movement Required : 0.16148609
+Min Movement Required : 0.003535498
+Total Movement Distance : 0.65561485
+---------------------------------------
+
+
+---------------------------------------
+Test Run #10
+Sum of Movements : 10.0
+Max Movement Required : 0.11878356
+Min Movement Required : 0.0034024976
+Total Movement Distance : 0.56345606
+---------------------------------------
+
+
+---------------------------------------
+Test Run #11
+Sum of Movements : 10.0
+Max Movement Required : 0.27140972
+Min Movement Required : 0.03314662
+Total Movement Distance : 1.4303186
+---------------------------------------
+
+
+---------------------------------------
+Test Run #12
+Sum of Movements : 10.0
+Max Movement Required : 0.28144246
+Min Movement Required : 0.03156811
+Total Movement Distance : 1.1115353
+---------------------------------------
+
+
+---------------------------------------
+Test Run #13
+Sum of Movements : 10.0
+Max Movement Required : 0.33044606
+Min Movement Required : 0.0011199154
+Total Movement Distance : 1.4530501
+---------------------------------------
+
+
+---------------------------------------
+Test Run #14
+Sum of Movements : 10.0
+Max Movement Required : 0.30247182
+Min Movement Required : 5.642772E-4
+Total Movement Distance : 1.1706395
+---------------------------------------
+
+
+---------------------------------------
+Test Run #15
+Sum of Movements : 10.0
+Max Movement Required : 0.15472396
+Min Movement Required : 0.017850578
+Total Movement Distance : 0.62436956
+---------------------------------------
+
+
+---------------------------------------
+Test Run #16
+Sum of Movements : 10.0
+Max Movement Required : 0.36486936
+Min Movement Required : 0.043483563
+Total Movement Distance : 1.7882583
+---------------------------------------
+
+
+---------------------------------------
+Test Run #17
+Sum of Movements : 10.0
+Max Movement Required : 0.23835427
+Min Movement Required : 0.001393497
+Total Movement Distance : 0.83267385
+---------------------------------------
+
+
+---------------------------------------
+Test Run #18
+Sum of Movements : 10.0
+Max Movement Required : 0.29127675
+Min Movement Required : 0.019787967
+Total Movement Distance : 1.4561143
+---------------------------------------
+
+
+---------------------------------------
+Test Run #19
+Sum of Movements : 10.0
+Max Movement Required : 0.19733351
+Min Movement Required : 0.031825066
+Total Movement Distance : 0.7702777
+---------------------------------------
+
+
+---------------------------------------
+Test Run #20
+Sum of Movements : 10.0
+Max Movement Required : 0.20232399
+Min Movement Required : 0.010941684
+Total Movement Distance : 1.0436196
+---------------------------------------
+
+Average Sum of Movements : 10.0
+Average Max Movement Required : 0.23552236
+Average Min Movement Required : 0.014489638
+Average Total Movement Distance : 1.0695871
+

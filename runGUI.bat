@@ -1,14 +1,14 @@
-@ECHO OFF
-ECHO Starting script
-set path=%path%;C:\Program Files\Java\jdk1.7.0_21\bin
-javac Algorithm.java
-javac Controller.java
-javac CumulativeStats.java
-javac UnitSquareAlgorithm.java
-javac MyCanvas.java
+@ECHO on
+
+set path=%PATH%;C:\Program Files\Java\jdk1.7.0_45\bin
 javac Sensor.java
 javac SensorDomain.java
-javac Statistics.java
+javac Algorithm.java
 javac UnitLineAlgorithm.java
 javac UnitPerimeterAlgorithm.java
-java  Controller
+javac UnitSquareAlgorithm.java
+javac Statistics.java
+javac CumulativeStats.java
+javac MyCanvas.java
+javac Controller.java
+java Controller
